@@ -4,9 +4,6 @@
 [submodule "bundle/beefsack-vim-config"]
 	path = bundle/beefsack-vim-config
 	url = https://github.com/beefsack/beefsack-vim-config.git
-[submodule "bundle/ctrlp"]
-	path = bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -22,9 +19,6 @@
 [submodule "bundle/vim-indent-guides"]
 	path = bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "bundle/mru"]
-	path = bundle/mru
-	url = https://github.com/yegappan/mru.git
 [submodule "bundle/taglist.vim"]
 	path = bundle/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim.git
@@ -37,3 +31,6 @@
 [submodule "bundle/vim-multiple-cursors"]
 	path = bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "bundle/unite.vim"]
+	path = bundle/unite.vim
+	url = https://github.com/Shougo/unite.vim.git
