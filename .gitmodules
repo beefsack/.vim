@@ -43,3 +43,6 @@
 [submodule "bundle/BufOnly.vim"]
 	path = bundle/BufOnly.vim
 	url = https://github.com/vim-scripts/BufOnly.vim.git
+[submodule "bundle/vim-hack"]
+	path = bundle/vim-hack
+	url = https://github.com/hhvm/vim-hack.git
