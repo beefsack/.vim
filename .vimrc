@@ -28,7 +28,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'schickling/vim-bufonly'
 NeoBundle 'beefsack/beefsack-vim-config'
