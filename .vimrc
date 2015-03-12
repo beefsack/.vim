@@ -24,6 +24,12 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'schickling/vim-bufonly'
 NeoBundle 'beefsack/beefsack-vim-config'
 NeoBundle 'wting/rust.vim'
+NeoBundle 'phildawes/racer', {
+\   'build' : {
+\     'mac': 'cargo build --release',
+\     'unix': 'cargo build --release',
+\   }
+\ }
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Shougo/unite.vim'
@@ -33,6 +39,8 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'Shougo/vinarise.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
