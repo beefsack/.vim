@@ -52,3 +52,12 @@
 [submodule "bundle/vinarise"]
 	path = bundle/vinarise
 	url = https://github.com/Shougo/vinarise.vim.git
+[submodule "bundle/neocomplete.vim"]
+	path = bundle/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "bundle/vimproc.vim"]
+	path = bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/neobundle.vim"]
+	path = bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
