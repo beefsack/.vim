@@ -2,5 +2,5 @@ beefsack's .vimrc
 =================
 
 ```bash
-curl https://raw.githubusercontent.com/beefsack/.vim/install.sh | sh
+curl https://raw.githubusercontent.com/beefsack/.vim/master/install.sh | sh
 ```
