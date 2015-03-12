@@ -39,7 +39,6 @@ NeoBundle 'phildawes/racer', {
 \   }
 \ }
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
