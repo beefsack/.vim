@@ -32,12 +32,6 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'schickling/vim-bufonly'
 NeoBundle 'beefsack/beefsack-vim-config'
 NeoBundle 'wting/rust.vim'
-NeoBundle 'phildawes/racer', {
-\   'build' : {
-\     'mac': 'cargo build --release',
-\     'unix': 'cargo build --release',
-\   }
-\ }
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'bling/vim-airline'
