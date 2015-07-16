@@ -46,6 +46,10 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'KabbAmine/zeavim.vim'
+NeoBundle 'raichoo/haskell-vim'
+NeoBundle 'nbouscal/vim-stylish-haskell'
+NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'lambdatoast/elm.vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
