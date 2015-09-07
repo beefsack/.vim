@@ -49,7 +49,7 @@ NeoBundle 'KabbAmine/zeavim.vim'
 NeoBundle 'raichoo/haskell-vim'
 NeoBundle 'nbouscal/vim-stylish-haskell'
 NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'lambdatoast/elm.vim'
+NeoBundle 'ElmCast/elm-vim'
 NeoBundle 'hhvm/vim-hack'
 
 " You can specify revision/branch/tag.
