@@ -51,6 +51,7 @@ NeoBundle 'nbouscal/vim-stylish-haskell'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'ElmCast/elm-vim'
 NeoBundle 'hhvm/vim-hack'
+NeoBundle 'ledger/vim-ledger'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
