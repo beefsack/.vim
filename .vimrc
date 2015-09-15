@@ -52,6 +52,7 @@ NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'ElmCast/elm-vim'
 NeoBundle 'hhvm/vim-hack'
 NeoBundle 'ledger/vim-ledger'
+NeoBundle 'pangloss/vim-javascript' " required for vim-jsx
 NeoBundle 'mxw/vim-jsx'
 
 " You can specify revision/branch/tag.
