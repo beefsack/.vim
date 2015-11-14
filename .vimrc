@@ -54,6 +54,7 @@ NeoBundle 'hhvm/vim-hack'
 NeoBundle 'ledger/vim-ledger'
 NeoBundle 'pangloss/vim-javascript' " required for vim-jsx
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'Chiel92/vim-autoformat'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
