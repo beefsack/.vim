@@ -40,7 +40,6 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'Shougo/vinarise.vim'
-NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite-outline'
@@ -56,6 +55,17 @@ NeoBundle 'pangloss/vim-javascript' " required for vim-jsx
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'Quramy/tsuquyomi'
+NeoBundle 'Valloric/YouCompleteMe', {
+\ 'build'      : {
+\    'mac'     : './install.py',
+\    'unix'    : './install.py',
+\    'windows' : 'install.py',
+\    'cygwin'  : './install.py'
+\ }
+\ }
+
+" Some plugins take a long time to install submodules, like YCM
+let g:neobundle#install_process_timeout = 1500
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
