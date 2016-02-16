@@ -58,7 +58,7 @@ NeoBundle 'Quramy/tsuquyomi'
 NeoBundle 'Valloric/YouCompleteMe', {
 \ 'build'      : {
 \    'mac'     : './install.py',
-\    'unix'    : './install.py',
+\    'unix'    : 'python2 install.py',
 \    'windows' : 'install.py',
 \    'cygwin'  : './install.py'
 \ }
