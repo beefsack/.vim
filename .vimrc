@@ -14,10 +14,12 @@ call dein#begin(expand('~/.dein'))
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
-call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('Shougo/vimproc.vim')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim')
 call dein#add('dracula/vim')
 call dein#add('hhvm/vim-hack')
-call dein#add('Valloric/YouCompleteMe')
+call dein#add('Shougo/neocomplete.vim')
 call dein#add('tpope/vim-sleuth') " Indentation detection
 call dein#add('airblade/vim-gitgutter')
 call dein#add('vim-airline/vim-airline')
@@ -26,6 +28,9 @@ call dein#add('tpope/vim-fugitive') " Git in Airline
 call dein#add('fatih/vim-go')
 call dein#add('rust-lang/rust.vim')
 call dein#add('ludovicchabant/vim-gutentags')
+call dein#add('racer-rust/vim-racer')
+call dein#add('Shougo/neomru.vim')
+call dein#add('hewes/unite-gtags')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -78,16 +83,24 @@ let g:rustfmt_fail_silently = 1
 
 " CtrlP
 let g:ctrlp_abbrev = {
-  \ 'gmode': 'i',
-  \ 'abbrevs': [
-    \ {
-      \ 'pattern': ' ',
-      \ 'expanded': '',
-      \ 'mode': 'pfrz',
-    \ },
-    \ ]
-  \ }
+\   'gmode': 'i',
+\   'abbrevs': [
+\     {
+\       'pattern': ' ',
+\       'expanded': '',
+\       'mode': 'pfrz',
+\     },
+\   ]
+\ }
 
 " Gutentags
 set statusline+=%{gutentags#statusline()}
 let g:gutentags_cache_dir = g:tmpdir
+
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1
+
+" Unite
+call unite#custom#profile('default', 'context', {
+\   'start_insert' : 1
+\ })
