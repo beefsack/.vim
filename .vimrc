@@ -1,82 +1,90 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle'))
+set runtimepath^=~/.dein/repos/github.com/Shougo/dein.vim
 
-" Let NeoBundle manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#begin(expand('~/.dein'))
 
-" Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'schickling/vim-bufonly'
-NeoBundle 'beefsack/beefsack-vim-config'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'Shougo/vinarise.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'KabbAmine/zeavim.vim'
-NeoBundle 'raichoo/haskell-vim'
-NeoBundle 'nbouscal/vim-stylish-haskell'
-NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'ElmCast/elm-vim'
-NeoBundle 'hhvm/vim-hack'
-NeoBundle 'ledger/vim-ledger'
-NeoBundle 'pangloss/vim-javascript' " required for vim-jsx
-NeoBundle 'mxw/vim-jsx'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'Quramy/tsuquyomi'
-NeoBundle 'Valloric/YouCompleteMe', {
-\ 'build'      : {
-\    'mac'     : './install.py',
-\    'unix'    : 'python2 install.py',
-\    'windows' : 'install.py',
-\    'cygwin'  : './install.py'
-\ }
-\ }
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
 
-" Some plugins take a long time to install submodules, like YCM
-let g:neobundle#install_process_timeout = 1500
+" Add or remove your plugins here:
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('dracula/vim')
+call dein#add('hhvm/vim-hack')
+call dein#add('Valloric/YouCompleteMe')
+call dein#add('tpope/vim-sleuth') " Indentation detection
+call dein#add('airblade/vim-gitgutter')
+call dein#add('vim-airline/vim-airline')
+call dein#add('mxw/vim-jsx')
+call dein#add('tpope/vim-fugitive') " Git in Airline
+call dein#add('fatih/vim-go')
+call dein#add('rust-lang/rust.vim')
+call dein#add('ludovicchabant/vim-gutentags')
 
 " You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
 " Required:
-call neobundle#end()
+call dein#end()
 
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
+syntax on
+set tabstop=4
+set cursorline
+set cc=80
+set ignorecase
+set smartcase
+set laststatus=2
+set mouse=a
+set backspace=indent,eol,start
+
+color dracula
+
+" Create temporary files in a temp dir
+let g:tmpdir = $HOME . '/.vimtmp'
+if !isdirectory(g:tmpdir)
+  call mkdir(g:tmpdir, 'p')
+endif
+let &backupdir = g:tmpdir . '//,.'
+let &directory = g:tmpdir . '//,.'
+
+" JSX
+let g:jsx_ext_required = 0
+
+" Airline
+let g:airline_powerline_fonts = 1
+
+" Rust
+let g:rustfmt_autosave = 1
+let g:rustfmt_fail_silently = 1
+
+" CtrlP
+let g:ctrlp_abbrev = {
+  \ 'gmode': 'i',
+  \ 'abbrevs': [
+    \ {
+      \ 'pattern': ' ',
+      \ 'expanded': '',
+      \ 'mode': 'pfrz',
+    \ },
+    \ ]
+  \ }
+
+" Gutentags
+set statusline+=%{gutentags#statusline()}
+let g:gutentags_cache_dir = g:tmpdir
