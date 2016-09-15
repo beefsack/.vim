@@ -63,7 +63,13 @@ set wildmenu
 set timeoutlen=1000 ttimeoutlen=0
 
 color dracula
-highlight Pmenu ctermbg=238 gui=bold
+highlight Pmenu ctermbg=238 guibg=gray40
+
+if has('gui_running')
+  set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
+  set guioptions -=m
+  set guioptions -=T
+endif
 
 " Create temporary files in a temp dir
 let g:tmpdir = $HOME . '/.vimtmp'
