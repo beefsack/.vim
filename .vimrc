@@ -56,6 +56,7 @@ set wildmode=longest,full
 set wildmenu
 
 color dracula
+highlight Pmenu ctermbg=238 gui=bold
 
 " Create temporary files in a temp dir
 let g:tmpdir = $HOME . '/.vimtmp'
