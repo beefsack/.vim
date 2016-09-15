@@ -31,6 +31,7 @@ call dein#add('ludovicchabant/vim-gutentags')
 call dein#add('racer-rust/vim-racer')
 call dein#add('Shougo/neomru.vim')
 call dein#add('hewes/unite-gtags')
+call dein#add('scrooloose/syntastic')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -105,3 +106,13 @@ let g:neocomplete#enable_at_startup = 1
 call unite#custom#profile('default', 'context', {
 \   'start_insert' : 1
 \ })
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
