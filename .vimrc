@@ -66,7 +66,7 @@ color dracula
 highlight Pmenu ctermbg=238 guibg=gray40
 
 let mapleader=","
-nnoremap <leader>f :Unite buffer file_mru file_rec/async<CR>
+nnoremap <leader>f :Unite buffer file_rec/async<CR>
 nnoremap <leader>t :Unite gtags/file<CR>
 nnoremap <leader>d :Unite gtags/def<CR>
 nnoremap <leader>r :Unite gtags/ref<CR>
@@ -75,6 +75,8 @@ if has('gui_running')
   set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
   set guioptions -=m
   set guioptions -=T
+  set guioptions -=r
+  set guioptions -=L
 endif
 
 " Create temporary files in a temp dir
@@ -115,17 +117,6 @@ let g:gutentags_cache_dir = g:tmpdir
 let g:neocomplete#enable_at_startup = 1
 
 " Unite
-let g:unite_source_file_mru_limit = 20
 call unite#custom#profile('default', 'context', {
 \   'start_insert' : 1
 \ })
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
