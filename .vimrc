@@ -52,6 +52,8 @@ set smartcase
 set laststatus=2
 set mouse=a
 set backspace=indent,eol,start
+set wildmode=longest,full
+set wildmenu
 
 color dracula
 
