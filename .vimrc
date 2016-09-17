@@ -61,6 +61,7 @@ set backspace=indent,eol,start
 set wildmode=longest,full
 set wildmenu
 set timeoutlen=1000 ttimeoutlen=0
+set clipboard=unnamedplus
 
 color dracula
 highlight Pmenu ctermbg=238 guibg=gray40
