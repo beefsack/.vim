@@ -16,7 +16,6 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your plugins here:
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimfiler.vim')
 call dein#add('dracula/vim')
 call dein#add('hhvm/vim-hack')
 call dein#add('Shougo/neocomplete.vim')
@@ -25,13 +24,14 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('vim-airline/vim-airline')
 call dein#add('mxw/vim-jsx')
 call dein#add('tpope/vim-fugitive') " Git in Airline
+call dein#add('scrooloose/syntastic')
 call dein#add('fatih/vim-go')
 call dein#add('rust-lang/rust.vim')
-call dein#add('ludovicchabant/vim-gutentags')
 call dein#add('racer-rust/vim-racer')
-call dein#add('Shougo/neomru.vim')
-call dein#add('hewes/unite-gtags')
-call dein#add('scrooloose/syntastic')
+call dein#add('ludovicchabant/vim-gutentags')
+call dein#add('mileszs/ack.vim')
+call dein#add('tsukkee/unite-tag')
+call dein#add('Shougo/neoinclude.vim')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -67,10 +67,8 @@ color dracula
 highlight Pmenu ctermbg=238 guibg=gray40
 
 let mapleader=","
-nnoremap <leader>f :Unite buffer file_rec/async<CR>
-nnoremap <leader>t :Unite gtags/file<CR>
-nnoremap <leader>d :Unite gtags/def<CR>
-nnoremap <leader>r :Unite gtags/ref<CR>
+nnoremap <leader>f :Unite buffer file_rec/git<CR>
+nnoremap <leader>t :Unite tag/include<CR>
 
 if has('gui_running')
   set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
@@ -98,17 +96,18 @@ let g:airline_powerline_fonts = 1
 let g:rustfmt_autosave = 1
 let g:rustfmt_fail_silently = 1
 
-" CtrlP
-let g:ctrlp_abbrev = {
-\   'gmode': 'i',
-\   'abbrevs': [
-\     {
-\       'pattern': ' ',
-\       'expanded': '',
-\       'mode': 'pfrz',
-\     },
-\   ]
-\ }
+" Hack
+function HhFormat()
+  let formatted = system('hh_format', join(getline(1, '$'), "\n"))
+  if !empty(formatted) && !v:shell_error
+    let c_pos = getpos('.')
+    %delete
+    put =formatted
+    1d
+    call setpos('.', c_pos)
+  endif
+endfunction
+au BufWritePre *.php call HhFormat()
 
 " Gutentags
 set statusline+=%{gutentags#statusline()}
@@ -121,3 +120,8 @@ let g:neocomplete#enable_at_startup = 1
 call unite#custom#profile('default', 'context', {
 \   'start_insert' : 1
 \ })
+
+" ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
