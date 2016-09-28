@@ -14,8 +14,6 @@ call dein#begin(expand('~/.dein'))
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('Shougo/unite.vim')
 call dein#add('dracula/vim')
 call dein#add('hhvm/vim-hack')
 call dein#add('Shougo/neocomplete.vim')
@@ -30,8 +28,8 @@ call dein#add('rust-lang/rust.vim')
 call dein#add('racer-rust/vim-racer')
 call dein#add('ludovicchabant/vim-gutentags')
 call dein#add('mileszs/ack.vim')
-call dein#add('tsukkee/unite-tag')
-call dein#add('Shougo/neoinclude.vim')
+call dein#add('junegunn/fzf', {'build' : './install.sh --bin'})
+call dein#add('junegunn/fzf.vim')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -67,8 +65,10 @@ color dracula
 highlight Pmenu ctermbg=238 guibg=gray40
 
 let mapleader=","
-nnoremap <leader>f :Unite buffer file_rec/git<CR>
-nnoremap <leader>t :Unite tag/include<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>t :BTags<CR>
+nnoremap <leader>r :Tags<CR>
 
 if has('gui_running')
   set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
@@ -115,11 +115,6 @@ let g:gutentags_cache_dir = g:tmpdir
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
-
-" Unite
-call unite#custom#profile('default', 'context', {
-\   'start_insert' : 1
-\ })
 
 " ack.vim
 if executable('ag')
