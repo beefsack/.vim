@@ -117,6 +117,8 @@ let g:gutentags_cache_dir = g:tmpdir
 let g:neocomplete#enable_at_startup = 1
 
 " ack.vim
-if executable('ag')
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
