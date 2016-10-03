@@ -69,6 +69,7 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :BTags<CR>
 nnoremap <leader>r :Tags<CR>
+nnoremap <leader>s :Ack!<Space>
 
 if has('gui_running')
   set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
