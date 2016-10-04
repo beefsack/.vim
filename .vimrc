@@ -28,7 +28,7 @@ call dein#add('rust-lang/rust.vim')
 call dein#add('racer-rust/vim-racer')
 call dein#add('ludovicchabant/vim-gutentags')
 call dein#add('mileszs/ack.vim')
-call dein#add('junegunn/fzf', {'build' : './install.sh --bin'})
+call dein#add('junegunn/fzf')
 call dein#add('junegunn/fzf.vim')
 
 " You can specify revision/branch/tag.
