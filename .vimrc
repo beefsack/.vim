@@ -65,7 +65,7 @@ color dracula
 highlight Pmenu ctermbg=238 guibg=gray40
 
 let mapleader=","
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>f :call fzf#run({'source': 'rg --files', 'sink': 'e'})<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :BTags<CR>
 nnoremap <leader>r :Tags<CR>
@@ -118,11 +118,7 @@ let g:gutentags_cache_dir = g:tmpdir
 let g:neocomplete#enable_at_startup = 1
 
 " ack.vim
-if executable('rg')
-  let g:ackprg = 'rg --vimgrep'
-elseif executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+let g:ackprg = 'rg --vimgrep'
 
 " Go
 let g:go_fmt_command = "goimports"
