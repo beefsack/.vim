@@ -7,6 +7,6 @@ fi
 if [ ! -e ~/.vimrc ]; then
   ln -s ~/.vim/.vimrc ~/.vimrc
 fi
-if [ ! -d ~/.dein ]; then
-  bash <(curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ~/.dein
+if [ ! -d ~/.config/nvim ]; then
+  ln -s ~/.vim ~/.config/nvim
 fi

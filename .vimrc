@@ -1,3 +1,14 @@
+if has('nvim')
+  let deindir = $HOME . '/.dein-nvim'
+else
+  let deindir = $HOME . '/.dein'
+endif
+if !isdirectory(deindir)
+  echo 'dein not detected, installing to ' . deindir . '...'
+  let output = system('bash <(curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ' . shellescape(deindir))
+  echo 'dein installed'
+endif
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
@@ -7,7 +18,7 @@ endif
 set runtimepath^=~/.dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin(expand('~/.dein'))
+call dein#begin(expand(deindir))
 
 " Let dein manage dein
 " Required:
@@ -16,13 +27,11 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your plugins here:
 call dein#add('dracula/vim')
 call dein#add('hhvm/vim-hack')
-call dein#add('Shougo/neocomplete.vim')
 call dein#add('tpope/vim-sleuth') " Indentation detection
 call dein#add('airblade/vim-gitgutter')
 call dein#add('vim-airline/vim-airline')
 call dein#add('mxw/vim-jsx')
 call dein#add('tpope/vim-fugitive') " Git in Airline
-call dein#add('scrooloose/syntastic')
 call dein#add('fatih/vim-go')
 call dein#add('rust-lang/rust.vim')
 call dein#add('racer-rust/vim-racer')
@@ -30,6 +39,12 @@ call dein#add('ludovicchabant/vim-gutentags')
 call dein#add('mileszs/ack.vim')
 call dein#add('junegunn/fzf', {'build': 'bash install --bin'})
 call dein#add('junegunn/fzf.vim')
+  call dein#add('neomake/neomake')
+if has('nvim')
+  call dein#add('Shougo/deoplete.nvim')
+else
+  call dein#add('Shougo/neocomplete.vim')
+endif
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -114,14 +129,23 @@ au BufWritePre *.php call HhFormat()
 set statusline+=%{gutentags#statusline()}
 let g:gutentags_cache_dir = g:tmpdir
 
-" NeoComplete
-let g:neocomplete#enable_at_startup = 1
-
 " ack.vim
 let g:ackprg = 'rg --vimgrep'
 
 " Go
 let g:go_fmt_command = "goimports"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_type = "quickfix"
+
+" Neomake
+autocmd! BufWritePost * Neomake
+
+" Racer
+let g:racer_experimental_completer = 1
+
+if has('nvim')
+  " Deoplete
+  let g:deoplete#enable_at_startup = 1
+else
+  " Neocomplete
+  let g:neocomplete#enable_at_startup = 1
+endif
