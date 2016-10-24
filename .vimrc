@@ -36,7 +36,6 @@ call dein#add('fatih/vim-go')
 call dein#add('rust-lang/rust.vim')
 call dein#add('racer-rust/vim-racer')
 call dein#add('ludovicchabant/vim-gutentags')
-call dein#add('mileszs/ack.vim')
 call dein#add('junegunn/fzf', {'build': 'bash install --bin'})
 call dein#add('junegunn/fzf.vim')
   call dein#add('neomake/neomake')
@@ -80,11 +79,11 @@ color dracula
 highlight Pmenu ctermbg=238 guibg=gray40
 
 let mapleader=","
-nnoremap <leader>f :call fzf#run({'source': 'rg --files', 'sink': 'e'})<CR>
+nnoremap <leader>f :call fzf#run({'source': 'ag -g ""', 'sink': 'e', 'down': '~40%'})<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :BTags<CR>
 nnoremap <leader>r :Tags<CR>
-nnoremap <leader>s :Ack!<Space>
+nnoremap <leader>s :Ag<Space>
 
 if has('gui_running')
   set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
