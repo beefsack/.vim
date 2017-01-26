@@ -1,10 +1,6 @@
-if has('nvim')
-  let plugdir = $HOME . '/.local/share/nvim/plugged'
-else
-  let plugdir = $HOME . '/.vim/plugged'
-endif
-call plug#begin(plugdir)
+call plug#begin()
 
+Plug 'tpope/vim-sensible'
 Plug 'dracula/vim'
 Plug 'hhvm/vim-hack'
 Plug 'tpope/vim-sleuth' " Indentation detection
@@ -12,18 +8,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-fugitive' " Git in Airline
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'junegunn/fzf', {'build': 'bash install --bin'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'neomake/neomake'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim'
-else
-  Plug 'Shougo/neocomplete.vim'
-endif
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 
 call plug#end()
 
