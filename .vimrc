@@ -1,66 +1,33 @@
 if has('nvim')
-  let deindir = $HOME . '/.dein-nvim'
+  let plugdir = $HOME . '/.local/share/nvim/plugged'
 else
-  let deindir = $HOME . '/.dein'
+  let plugdir = $HOME . '/.vim/plugged'
 endif
-if !isdirectory(deindir)
-  echo 'dein not detected, installing to ' . deindir . '...'
-  let output = system('bash <(curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ' . shellescape(deindir))
-  echo 'dein installed'
-endif
+call plug#begin(plugdir)
 
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath^=~/.dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-call dein#begin(expand(deindir))
-
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
-
-" Add or remove your plugins here:
-call dein#add('dracula/vim')
-call dein#add('hhvm/vim-hack')
-call dein#add('tpope/vim-sleuth') " Indentation detection
-call dein#add('airblade/vim-gitgutter')
-call dein#add('vim-airline/vim-airline')
-call dein#add('mxw/vim-jsx')
-call dein#add('tpope/vim-fugitive') " Git in Airline
-call dein#add('fatih/vim-go')
-call dein#add('rust-lang/rust.vim')
-call dein#add('racer-rust/vim-racer')
-call dein#add('ludovicchabant/vim-gutentags')
-call dein#add('junegunn/fzf', {'build': 'bash install --bin'})
-call dein#add('junegunn/fzf.vim')
-  call dein#add('neomake/neomake')
+Plug 'dracula/vim'
+Plug 'hhvm/vim-hack'
+Plug 'tpope/vim-sleuth' " Indentation detection
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-fugitive' " Git in Airline
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'junegunn/fzf', {'build': 'bash install --bin'}
+Plug 'junegunn/fzf.vim'
+Plug 'neomake/neomake'
 if has('nvim')
-  call dein#add('Shougo/deoplete.nvim')
+  Plug 'Shougo/deoplete.nvim'
 else
-  call dein#add('Shougo/neocomplete.vim')
+  Plug 'Shougo/neocomplete.vim'
 endif
 
-" You can specify revision/branch/tag.
-" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+call plug#end()
 
-" Required:
-call dein#end()
-
-" Required:
 filetype plugin indent on
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
-
 syntax on
 set tabstop=4
 set cursorline
